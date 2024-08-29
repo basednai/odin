@@ -1,26 +1,27 @@
-const container = document.querySelector("#container");
+const list = document.querySelector("ul");
+const input = document.querySelector("input");
+const btn = document.querySelector("button");
 
-const redP = document.createElement("p")
-redP.style.color = "red"
-redP.textContent = "Hey I'm red!"
+btn.addEventListener("click", () => {
+    const itemText = input.value;
+    input.value = '';
 
-const blueH3 = document.createElement("h3")
-blueH3.style.color = "blue"
-blueH3.textContent = "I'm a blue h3!"
+    const item = document.createElement("li")
+    const span = document.createElement("span")
+    const btn2 = document.createElement("button");
 
-const div = document.createElement("div")
-div.style.backgroundColor = "pink"
-div.style.border = "black"
+    item.appendChild(span);
+    item.appendChild(btn2);
 
-container.appendChild(redP)
-container.appendChild(blueH3)
-container.appendChild(div)
+    span.textContent = itemText;
+    btn2.textContent = "delete";
 
-const h1 = document.createElement("h1")
-h1.textContent = "I'm in a div"
+    if (itemText != '')
+        list.append(item);
 
-const p = document.createElement("p")
-p.textContent = "ME TOO!"
+    btn2.addEventListener("click", () => {
+        list.removeChild(item);
+    });
 
-div.appendChild(h1)
-div.appendChild(p)
+    document.querySelector("input").focus()
+})

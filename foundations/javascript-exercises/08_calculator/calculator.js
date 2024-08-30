@@ -9,8 +9,7 @@ const subtract = function (...arr) {
 };
 
 const sum = function (arr) {
-  if (!arr.length) return 0;
-  const sum = arr.reduce((sum, value) => sum + value)
+  const sum = arr.reduce((sum, value) => sum + value, 0)
   return sum;
 };
 
